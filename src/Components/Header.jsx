@@ -17,12 +17,14 @@ function Header() {
       <Container fluid>
         <Link to="/" className="link-no-underline">
           <Navbar.Brand>
+            <Link to="/landing">
             <Image
               src="/PERSONOVEL.png"
               className="logo img-fluid"
               style={{ width: "200px", height: "50px" }}
               alt="Brand Logo"
             />
+             </Link>
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
