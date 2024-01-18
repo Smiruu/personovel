@@ -6,6 +6,10 @@ import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PopularScreen from './Screens/PopularScreen';
 import LatestScreen from './Screens/LatestScreen';
+import AboutScreen from './Screens/AboutScreen';
+import ContactScreen from './Screens/ContactScreen';
+import TermsScreen from './Screens/TermsScreen';
+import PolicyScreen from './Screens/PolicyScreen';
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
             <Route path='/product/:id' element={<ProductScreen />} />
             <Route path='/popular' element={<PopularScreen />} />
             <Route path='/latest' element={<LatestScreen />} />     
+            <Route path='/about' element={<AboutScreen />} />     
+            <Route path='/contact' element={<ContactScreen />} />        
+            <Route path='/terms' element={<TermsScreen />} />     
+            <Route path='/policy' element={<PolicyScreen />} />     
           </Routes>
         </Container>
 
