@@ -10,7 +10,9 @@ import AboutScreen from './Screens/AboutScreen';
 import ContactScreen from './Screens/ContactScreen';
 import TermsScreen from './Screens/TermsScreen';
 import PolicyScreen from './Screens/PolicyScreen';
-
+import LandingScreen from './Screens/LandingScreen';
+import Start from './Components/Start';
+import SampleScreen from './Screens/SampleScreen';
 function App() {
   return (
     <Router>
@@ -27,14 +29,21 @@ function App() {
             <Route path='/contact' element={<ContactScreen />} />        
             <Route path='/terms' element={<TermsScreen />} />     
             <Route path='/policy' element={<PolicyScreen />} />     
+            <Route path='/latest' element={<LatestScreen />} />
+            <Route path='/landing' element={<LandingScreen />} /> 
+            <Route path='/sample' element={<SampleScreen />} />     
+    
+
           </Routes>
         </Container>
 
       </main>
       </div>
-
       <Footer />
     </Router>
+
+
+
   );
 }
 
