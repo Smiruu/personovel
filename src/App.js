@@ -1,50 +1,64 @@
-import Footer from './Components/Footer';
-import Header from './Components/Header';
-import HomeScreen from './Screens/HomeScreen';
-import ProductScreen from './Screens/ProductScreen';
-import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PopularScreen from './Screens/PopularScreen';
-import LatestScreen from './Screens/LatestScreen';
-import AboutScreen from './Screens/AboutScreen';
-import ContactScreen from './Screens/ContactScreen';
-import TermsScreen from './Screens/TermsScreen';
-import PolicyScreen from './Screens/PolicyScreen';
-import LandingScreen from './Screens/LandingScreen';
-import Start from './Components/Start';
-import SampleScreen from './Screens/SampleScreen';
-function App() {
-  return (
-    <Router>
-      <Header />
-      <div className='color'>
-      <main className='py-3'>
-        <Container>
-          <Routes>
-            <Route path='/' element={<HomeScreen />} exact />
-            <Route path='/product/:id' element={<ProductScreen />} />
-            <Route path='/popular' element={<PopularScreen />} />
-            <Route path='/latest' element={<LatestScreen />} />     
-            <Route path='/about' element={<AboutScreen />} />     
-            <Route path='/contact' element={<ContactScreen />} />        
-            <Route path='/terms' element={<TermsScreen />} />     
-            <Route path='/policy' element={<PolicyScreen />} />     
-            <Route path='/latest' element={<LatestScreen />} />
-            <Route path='/landing' element={<LandingScreen />} /> 
-            <Route path='/sample' element={<SampleScreen />} />     
-    
-
-          </Routes>
-        </Container>
-
-      </main>
-      </div>
-      <Footer />
-    </Router>
+import React from "react";
+ import * as Components from './Components';
+ import myImage from './Image/PERSONOVEL.png';
+ 
 
 
+ function App() {
+    const [signIn, toggle] = React.useState(true);
+     return(
+         <Components.Container>
+             <Components.SignUpContainer signinIn={signIn}>
+                 <Components.Form>
+                     <Components.Title>Create Account</Components.Title>
+                     <Components.Input type='text' placeholder='Username' />
+                     <Components.Input type='email' placeholder='Email' />
+                     <Components.Input type='password' placeholder='Password' />
+                     <Components.Button>Sign Up</Components.Button>
+                 </Components.Form>
+             </Components.SignUpContainer>
 
-  );
+             <Components.SignInContainer signinIn={signIn}>
+                  <Components.Form>
+                      <Components.Title>Log in</Components.Title>
+                      <Components.Input type='username' placeholder='Username' />
+                      <Components.Input type='password' placeholder='Password' />
+                      <Components.Button2>Sigin In</Components.Button2>
+                      <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
+                      
+                  </Components.Form>
+             </Components.SignInContainer>
+
+             <Components.OverlayContainer signinIn={signIn}>
+                 <Components.Overlay signinIn={signIn}>
+
+                 <Components.LeftOverlayPanel signinIn={signIn}>
+                       <Components.Title>
+                       <img src={myImage} alt="PERSONOVEL" style={{ width: '100%', borderRadius: '10px' }} />
+                       </Components.Title>
+                     <Components.Paragraph>
+                     Embark on an exhilarating literary journey beyond the realms of imagination, where each subscription unlocks a portal to captivating worlds, riveting characters, and uncharted narratives that will keep you on the edge of your seat—welcome to a subscription like no other, where the next chapter is always an adventure waiting to unfold.                      </Components.Paragraph>
+                     <Components.GhostButton onClick={() => toggle(true)}>
+                         Sign In
+                     </Components.GhostButton>
+                     </Components.LeftOverlayPanel>
+
+                     <Components.RightOverlayPanel signinIn={signIn}>
+                       <Components.Title>
+                       <img src={myImage} alt="PERSONOVEL" style={{ width: '100%', borderRadius: '10px' }} />
+                       </Components.Title>
+                       <Components.Paragraph>
+                       Step into a realm of endless stories tailored just for you, where every login welcomes you to a sanctuary of literary delights, awaiting the turn of each digital page to transport you to worlds unknown—your personalized escape into the extraordinary begins now.                        </Components.Paragraph>
+                           <Components.GhostButton onClick={() => toggle(false)}>
+                               Sigin Up
+                           </Components.GhostButton> 
+                     </Components.RightOverlayPanel>
+ 
+                 </Components.Overlay>
+             </Components.OverlayContainer>
+
+         </Components.Container>
+     )
 }
 
 export default App;
